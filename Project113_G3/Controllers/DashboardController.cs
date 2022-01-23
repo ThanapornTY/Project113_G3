@@ -1,89 +1,64 @@
-﻿using System;
+﻿using Project113_G3.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Globalization;
 
 namespace Project113_G3.Controllers
 {
     public class DashboardController : Controller
     {
+        private DataGameEntities game = new DataGameEntities();
         // GET: Dashboard
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Dashboard/Details/5
-        public ActionResult Details(int id)
+        public ActionResult VisualizeDB()
         {
-            return View();
+            return Json(Result(), JsonRequestBehavior.AllowGet);
+        }
+        public List<Datagame> Result()
+        {
+            List<Datagame> datagames = new List<Datagame>();
+            return datagames;
         }
 
-        // GET: Dashboard/Create
-        public ActionResult Create()
+        public JsonResult GetData()
         {
-            return View();
-        }
-
-        // POST: Dashboard/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            using (DataGameEntities dc = new DataGameEntities())
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                //var v = dc.Datagames;
+                var v = (from a in dc.Datagames
+                         group a by a.TypeGame into g
+                         select new
+                         {
+                             TypeGame = g.Key,
+                             CountType = g.Count(),
+                         });
+                if (v != null)
+                {
+                    var chartData = new object[v.Count() + 1];
+                    chartData[0] = new object[]
+                    {
+                 "Type",
+                 "Des",
+                    };
+                    int j = 0;
+                    
+                    foreach (var i in v)
+                    {
+                        j++;
+                        //chartData[j] = new object[] { i.NameGame.ToString(), i.TypeGame, i.Description_Game, i.url };
+                        chartData[j] = new object[] { i.TypeGame.ToString(), i.CountType.ToString()};
+                    }
+                    return new JsonResult { Data = chartData, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                }
             }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Dashboard/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Dashboard/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Dashboard/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Dashboard/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return new JsonResult { Data = null, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }
 }

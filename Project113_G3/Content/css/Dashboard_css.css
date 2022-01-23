@@ -19,6 +19,7 @@ body {
     background-color: #E3EBF9;
     min-height: 100vh;
     overflow-x: hidden;
+    height: 49px;
 }
 
 .container {

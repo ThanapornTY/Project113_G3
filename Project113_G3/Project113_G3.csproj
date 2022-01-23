@@ -52,6 +52,27 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -188,7 +209,7 @@
       <DependentUpon>UserDataAcc.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Datagame.cs">
-      <DependentUpon>DataGameModel.tt</DependentUpon>
+      <DependentUpon>MyDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataGameModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -207,6 +228,21 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MyDashboard.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDashboard.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyDashboard.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyDashboard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDashboard.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserData.cs">
       <DependentUpon>UserDataAcc.tt</DependentUpon>
     </Compile>
@@ -226,6 +262,7 @@
       <DependentUpon>UserDataAcc.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +284,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataGameModel.edmx</DependentUpon>
       <LastGenOutput>DataGameModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MyDashboard.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyDashboard.edmx</DependentUpon>
+      <LastGenOutput>MyDashboard.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MyDashboard.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyDashboard.edmx</DependentUpon>
+      <LastGenOutput>MyDashboard.cs</LastGenOutput>
     </Content>
     <Content Include="Models\UserDataAcc.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -274,7 +321,15 @@
     <Content Include="Models\DataGameModel.edmx.diagram">
       <DependentUpon>DataGameModel.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\MyDashboard.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyDashboard.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MyDashboard.edmx.diagram">
+      <DependentUpon>MyDashboard.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Dashboard\DataGames.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -285,6 +340,19 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -319,17 +387,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\UserDatas\Create.cshtml" />
-    <Content Include="Views\UserDatas\Delete.cshtml" />
-    <Content Include="Views\UserDatas\Details.cshtml" />
-    <Content Include="Views\UserDatas\Edit.cshtml" />
-    <Content Include="Views\UserDatas\Index.cshtml" />
-    <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\DataGames\Create.cshtml" />
     <Content Include="Views\DataGames\Delete.cshtml" />
     <Content Include="Views\DataGames\Details.cshtml" />
     <Content Include="Views\DataGames\Edit.cshtml" />
     <Content Include="Views\DataGames\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\UserDatas\Create.cshtml" />
+    <Content Include="Views\UserDatas\Delete.cshtml" />
+    <Content Include="Views\UserDatas\Details.cshtml" />
+    <Content Include="Views\UserDatas\Edit.cshtml" />
+    <Content Include="Views\UserDatas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

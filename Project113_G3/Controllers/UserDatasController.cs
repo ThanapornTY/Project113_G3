@@ -63,6 +63,8 @@ namespace Project113_G3.Controllers
                     userData.url = fileName;
                 }
 
+                userData.JoinDate = DateTime.Now;
+
                 db.UserDatas.Add(userData);
                 db.SaveChanges();
                 return RedirectToAction("Index");
