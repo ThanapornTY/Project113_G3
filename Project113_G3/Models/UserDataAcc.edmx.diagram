@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.UserData" Width="1.5" PointX="3.125" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="Model.AspNetUserUserData" />
+        <EntityTypeShape EntityType="Model.RQ_Reported" Width="1.5" PointX="3.25" PointY="4.75" />
+        <AssociationConnector Association="Model.RQ_ReportedUserData" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

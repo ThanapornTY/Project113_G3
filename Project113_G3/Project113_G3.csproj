@@ -195,6 +195,7 @@
     <Compile Include="Controllers\DataGamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RQ_ReportedController.cs" />
     <Compile Include="Controllers\UserDatasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -242,6 +243,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MyDashboard.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RQ_Reported.cs">
+      <DependentUpon>UserDataAcc.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserData.cs">
       <DependentUpon>UserDataAcc.tt</DependentUpon>
@@ -398,6 +402,11 @@
     <Content Include="Views\UserDatas\Details.cshtml" />
     <Content Include="Views\UserDatas\Edit.cshtml" />
     <Content Include="Views\UserDatas\Index.cshtml" />
+    <Content Include="Views\RQ_Reported\Create.cshtml" />
+    <Content Include="Views\RQ_Reported\Delete.cshtml" />
+    <Content Include="Views\RQ_Reported\Details.cshtml" />
+    <Content Include="Views\RQ_Reported\Edit.cshtml" />
+    <Content Include="Views\RQ_Reported\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

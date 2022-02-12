@@ -25,5 +25,6 @@ namespace Project113_G3.Models
         public Nullable<System.DateTime> JoinDate { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        public virtual RQ_Reported RQ_Reported { get; set; }
     }
 }

@@ -27,5 +27,6 @@ namespace Project113_G3.Models
     
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<UserData> UserDatas { get; set; }
+        public virtual DbSet<RQ_Reported> RQ_Reported { get; set; }
     }
 }

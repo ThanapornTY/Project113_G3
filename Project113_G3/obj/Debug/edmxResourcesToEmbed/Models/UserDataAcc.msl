@@ -34,5 +34,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RQ_Reported">
+      <EntityTypeMapping TypeName="Model.RQ_Reported">
+        <MappingFragment StoreEntitySet="RQ_Reported">
+          <ScalarProperty Name="RQrp_Note" ColumnName="RQrp_Note" />
+          <ScalarProperty Name="RQrp_Date" ColumnName="RQrp_Date" />
+          <ScalarProperty Name="RQrp_Toppic" ColumnName="RQrp_Toppic" />
+          <ScalarProperty Name="RQrp_ToUserName" ColumnName="RQrp_ToUserName" />
+          <ScalarProperty Name="RQrp_ByUsername" ColumnName="RQrp_ByUsername" />
+          <ScalarProperty Name="RQrp_Id" ColumnName="RQrp_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

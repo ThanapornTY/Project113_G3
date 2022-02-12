@@ -32,12 +32,18 @@
     <Property Name="url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="JoinDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserUserData" FromRole="UserData" ToRole="AspNetUser" />
+    <NavigationProperty Name="RQ_Reported" Relationship="Model.RQ_ReportedUserData" FromRole="UserData" ToRole="RQ_Reported" />
   </EntityType>
   <EntityContainer Name="UserDataAccEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
     <EntitySet Name="UserDatas" EntityType="Self.UserData" />
     <AssociationSet Name="AspNetUserUserData" Association="Model.AspNetUserUserData">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="UserData" EntitySet="UserDatas" />
+    </AssociationSet>
+    <EntitySet Name="RQ_Reported" EntityType="Model.RQ_Reported" />
+    <AssociationSet Name="RQ_ReportedUserData" Association="Model.RQ_ReportedUserData">
+      <End Role="RQ_Reported" EntitySet="RQ_Reported" />
       <End Role="UserData" EntitySet="UserDatas" />
     </AssociationSet>
   </EntityContainer>
@@ -50,6 +56,30 @@
       </Principal>
       <Dependent Role="UserData">
         <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RQ_Reported">
+    <Key>
+      <PropertyRef Name="RQrp_ByUsername" />
+    </Key>
+    <Property Name="RQrp_Id" Type="Int32" Nullable="false" />
+    <Property Name="RQrp_ByUsername" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RQrp_ToUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RQrp_Toppic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RQrp_Date" Type="DateTime" Precision="3" />
+    <Property Name="RQrp_Note" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserDatas" Relationship="Model.RQ_ReportedUserData" FromRole="RQ_Reported" ToRole="UserData" />
+  </EntityType>
+  <Association Name="RQ_ReportedUserData">
+    <End Type="Model.RQ_Reported" Role="RQ_Reported" Multiplicity="0..1" />
+    <End Type="Model.UserData" Role="UserData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RQ_Reported">
+        <PropertyRef Name="RQrp_ByUsername" />
+      </Principal>
+      <Dependent Role="UserData">
+        <PropertyRef Name="Name" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

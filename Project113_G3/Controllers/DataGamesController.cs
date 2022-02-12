@@ -50,6 +50,8 @@ namespace Project113_G3.Controllers
         {
             if (ModelState.IsValid)
             {
+
+
                 db.Datagames.Add(datagame);
                 db.SaveChanges();
                 return RedirectToAction("Index");

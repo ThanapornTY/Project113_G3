@@ -17,6 +17,17 @@
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
+  <EntityType Name="RQ_Reported">
+    <Key>
+      <PropertyRef Name="RQrp_ByUsername" />
+    </Key>
+    <Property Name="RQrp_Id" Type="int" Nullable="false" />
+    <Property Name="RQrp_ByUsername" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RQrp_ToUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RQrp_Toppic" Type="nvarchar" MaxLength="100" />
+    <Property Name="RQrp_Date" Type="datetime" />
+    <Property Name="RQrp_Note" Type="nvarchar" MaxLength="300" />
+  </EntityType>
   <EntityType Name="UserData">
     <Key>
       <PropertyRef Name="UID" />
@@ -33,6 +44,7 @@
   </EntityType>
   <EntityContainer Name="ModelStoreContainer">
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RQ_Reported" EntityType="Self.RQ_Reported" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
