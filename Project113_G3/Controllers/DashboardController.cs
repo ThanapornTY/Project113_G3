@@ -48,12 +48,12 @@ namespace Project113_G3.Controllers
                  "Des",
                     };
                     int j = 0;
-                    
+
                     foreach (var i in v)
                     {
                         j++;
                         //chartData[j] = new object[] { i.NameGame.ToString(), i.TypeGame, i.Description_Game, i.url };
-                        chartData[j] = new object[] { i.TypeGame.ToString(), i.CountType.ToString()};
+                        chartData[j] = new object[] { i.TypeGame.ToString(), i.CountType.ToString() };
                     }
                     return new JsonResult { Data = chartData, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                 }

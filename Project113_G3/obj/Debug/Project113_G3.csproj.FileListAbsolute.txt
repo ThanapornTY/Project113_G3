@@ -187,4 +187,3 @@ D:\Work\ปี2\เทอม2\1101113\FindPartyToPaly Pj113\Project113_G3\Projec
 D:\Work\ปี2\เทอม2\1101113\FindPartyToPaly Pj113\Project113_G3\Project113_G3\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Work\ปี2\เทอม2\1101113\FindPartyToPaly Pj113\Project113_G3\Project113_G3\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Work\ปี2\เทอม2\1101113\FindPartyToPaly Pj113\Project113_G3\Project113_G3\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-D:\Work\ปี2\เทอม2\1101113\FindPartyToPaly Pj113\Project113_G3\Project113_G3\obj\Debug\Project113_G3.csproj.AssemblyReference.cache
